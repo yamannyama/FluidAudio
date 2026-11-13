@@ -1043,3 +1043,12 @@ public final class OfflineDiarizerManager {
         logger.info("Exported \(payload.count) embeddings to \(path)")
     }
 }
+
+// MARK: - Live preparation access (fork: live-prepare)
+
+@available(macOS 14.0, iOS 17.0, *)
+extension OfflineDiarizerManager {
+    /// Configuration and loaded models, for `LiveDiarizationPreparer` (same module, different file).
+    var livePreparationConfig: OfflineDiarizerConfig { config }
+    var livePreparationModels: OfflineDiarizerModels? { models }
+}
